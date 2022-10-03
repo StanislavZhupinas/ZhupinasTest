@@ -23,6 +23,17 @@ public class Test5Page {
 	@FindBy(id="test5-alert")
 	private WebElement validationMessage;
 	
+	public WebElement getActiveButton() {
+		return activeButton;
+	}
+	
+	public WebElement getValidationMessage() {
+		return validationMessage;
+	}
+	
+	/*
+	 * Method to click button when it's available. Accepts a WebElement.
+	 */
 	public void clickButtonWhenAvailable(WebElement button) {
 		WebDriverWait webDriverWait = new WebDriverWait(driver, 20); 
 		webDriverWait.withMessage("Waited for 20 seconds but the button is still not available");
@@ -33,15 +44,10 @@ public class Test5Page {
 		
 		availableButton.click();
 	}
-
-	public WebElement getActiveButton() {
-		return activeButton;
-	}
 	
-	public WebElement getValidationMessage() {
-		return validationMessage;
-	}
-	
+	/*
+	 * Method to check the validation message. Accepts a WebElement.
+	 */
 	public void checkTheValidationMessage(WebElement message) {
 		WebDriverWait webDriverWait = new WebDriverWait(driver, 50); 
 		webDriverWait.withMessage("Waited for 50 seconds but the message is still not available");

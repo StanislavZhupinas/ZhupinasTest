@@ -14,7 +14,7 @@ public class Test1Page {
 		this.driver = driver;
 	}
 	
-	//Define an Email element and it's functions
+	//Define an Email element and it's functions.
 	@FindBy(id="inputEmail")
 	private WebElement email;
 	
@@ -22,11 +22,14 @@ public class Test1Page {
 		return email;
 	}
 
+	/*
+	 * Method to paste email value, accepts String values.
+	 */
 	public void setEmail(String email) {
 		this.email.sendKeys(email);
 	}
 	
-	//Define an Password element and it's functions
+	//Define an Password element and it's functions.
 	@FindBy(id="inputPassword")
 	private WebElement password;
 	
@@ -34,11 +37,14 @@ public class Test1Page {
 		return password;
 	}
 
+	/*
+	 * Method to paste password value, accepts String values.
+	 */
 	public void setPassword(String password) {
 		this.password.sendKeys(password);
 	}
 	
-	//Define an Sign In element and it's functions
+	//Define an Sign In element and it's functions.
 	@FindBy(css="[type='submit']")
 	private WebElement signInButton;
 	
@@ -46,10 +52,16 @@ public class Test1Page {
 		return signInButton;
 	}
 
+	/*
+	 * Method to click Sign In button.
+	 */
 	public void submitSignIn() {
 		this.signInButton.click();
 	}
 	
+	/*
+	 * Method to assert that the element is displayed.
+	 */
 	public void assertElementPresence (WebElement element) {
 		Assert.assertEquals(true, element.isDisplayed());
 	}

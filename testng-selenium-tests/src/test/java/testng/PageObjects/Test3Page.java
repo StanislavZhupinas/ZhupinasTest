@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class Test3Page {
@@ -21,14 +20,6 @@ public class Test3Page {
 	@FindBy(id="dropdownMenuButton")
 	private WebElement dropdownMenu;
 	
-	
-	
-	public void assertDropdownValue (WebElement element,String expectedValue) {
-		String currentValue = element.getText();
-		Assert.assertEquals(currentValue, expectedValue);
-	}
-
-	
 	public WebElement getDropdownMenu() {
 		return dropdownMenu;
 	}
@@ -36,7 +27,18 @@ public class Test3Page {
 
 	@FindBy(css="[class='dropdown-item']")
 	private List<WebElement> dropdownItems;
+	
+	/*
+	 * Method to assert dropdown list values. Accepts a WebElement, String expected value.
+	 */
+	public void assertDropdownValue (WebElement element,String expectedValue) {
+		String currentValue = element.getText();
+		Assert.assertEquals(currentValue, expectedValue);
+	}
 
+	/*
+	 * Method to set dropdown list values. Accepts String expected value.
+	 */
 	public void setDropdownMenu(String dropdownValue) {
 		dropdownMenu.click();		
 		

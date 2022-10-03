@@ -21,10 +21,6 @@ public class Test4Page {
 		return activeButton;
 	}
 	
-	public void buttonStateValidation (WebElement button, boolean isTrue) {
-		Assert.assertEquals(button.isEnabled(), isTrue);
-	}
-
 	@FindBy(css="[class='btn btn-lg btn-secondary']")
 	private WebElement inactiveButton;
 	
@@ -32,5 +28,11 @@ public class Test4Page {
 		return inactiveButton;
 	}
 	
-	
+	/*
+	 * Method to assert button status. Accepts a WebElement, boolean expected state.
+	 */
+	public void buttonStateValidation (WebElement button, boolean isTrue) {
+		Assert.assertEquals(button.isEnabled(), isTrue);
+	}
+
 }

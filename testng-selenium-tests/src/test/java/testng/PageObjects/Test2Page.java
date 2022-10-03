@@ -20,6 +20,13 @@ public class Test2Page {
 		return listItems;
 	}
 	
+	//Define a elements List and it's functions
+	@FindBy(className="list-group-item")
+	private List<WebElement> listItems;
+	
+	/*
+	 * Method to assert item list values. Accepts a WebElement, int index number and String expected value.
+	 */
 	public void listItemValueAssert (List<WebElement> element, int index, String expectedValue) {
 		
 		String listItem = element
@@ -30,6 +37,9 @@ public class Test2Page {
 		Assert.assertEquals(listItem, expectedValue);
 	}
 	
+	/*
+	 * Method to assert item list badge values. Accepts a WebElement, int index number and String expected value.
+	 */
 	public void listItemBadgeAssert (List<WebElement> element, int index, String expectedValue) {
 		
 		String listItem = element
@@ -39,9 +49,9 @@ public class Test2Page {
 		Assert.assertEquals(listItem, expectedValue);
 	}
 
-	@FindBy(className="list-group-item")
-	private List<WebElement> listItems;
-
+	/*
+	 * Method to assert a number of items. Accepts a WebElement, int expected value.
+	 */
 	public void assertListItemsNumber (List<WebElement> element, int expectedNumberOfItems) {
 		int count = element.size();
 		Assert.assertEquals(expectedNumberOfItems, count);
