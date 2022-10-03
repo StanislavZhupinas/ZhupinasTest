@@ -1,0 +1,18 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Test6Page {
+
+	private WebDriver driver;
+	
+	public Test6Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	public void returnSellValue(int x, int y) {
+		System.out.println(driver.findElement(By.cssSelector("tr:nth-of-type("+ x +") > td:nth-of-type("+ y +")")));
+	}
+}

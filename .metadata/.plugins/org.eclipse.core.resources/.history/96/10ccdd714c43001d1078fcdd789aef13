@@ -1,0 +1,31 @@
+package testng.PageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class Test2Page {
+	
+	private WebDriver driver;
+	
+	public Test2Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	public WebElement getListItems() {
+		return listItems;
+	}
+
+	@FindBy(className="list-group-item")
+	private WebElement listItems;
+
+	public void assertListItemsNumber (List<WebElement> element) {
+		int count = element.size();
+		Assert.assertEquals(3, count);
+	}
+}

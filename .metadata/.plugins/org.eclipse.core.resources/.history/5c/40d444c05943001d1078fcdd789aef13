@@ -1,0 +1,14 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+public class Test4Page {
+
+private WebDriver driver;
+	
+	public Test4Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+}

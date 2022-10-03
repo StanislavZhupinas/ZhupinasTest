@@ -1,0 +1,20 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class Test2Page {
+	
+	private WebDriver driver;
+	
+	public Test2Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	@FindBy(css="[class='.m_list-group > li:nth-of-type(1)']")
+	private WebElement listItem1;
+
+}

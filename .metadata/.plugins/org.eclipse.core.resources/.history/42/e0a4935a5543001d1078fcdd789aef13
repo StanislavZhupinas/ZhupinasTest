@@ -1,0 +1,40 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class Test3Page {
+
+	private WebDriver driver;
+	
+	public Test3Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	@FindBy(id="dropdownMenuButton")
+	private WebElement dropdownMenu;
+	
+	
+	
+	public void assertDropdownValue (WebElement element,String expectedValue) {
+		String currentValue = element.getText();
+		Assert.assertEquals(currentValue, expectedValue);
+	}
+
+
+
+	public WebElement getDropdownMenu() {
+		return dropdownMenu;
+	}
+
+
+
+	public void setDropdownMenu(WebElement dropdownMenu, String dropdownValue) {
+		Select select = new Select(this.dropdownMenu);
+		select.selectByValue(dropdownValue);
+	}
+}

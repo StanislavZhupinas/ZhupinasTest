@@ -1,0 +1,5 @@
+package testng.PageObjects;
+
+public class Test6Page {
+
+}

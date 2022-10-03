@@ -1,0 +1,127 @@
+package testng;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import testng.PageObjects.Test1Page;
+import testng.PageObjects.Test2Page;
+
+public class NewTest {
+	private WebDriver driver;
+	private String baseUrl;
+	private String email = "testemail@gmail.com";
+	private String password = "password123";
+	
+	@BeforeClass(alwaysRun = true)
+	public void setUp() throws Exception {
+		WebDriverManager.chromedriver().version("106.0.5249.61").setup();
+	    driver = new ChromeDriver();
+	    baseUrl = "file:///D:/priv/work/resolver/QE-index.html";
+	}
+		
+	@Test
+	/*
+	 * Test 1
+		Navigate to the home page
+		Assert that both the email address and password inputs are present as well as the login button
+		Enter in an email address and password combination into the respective fields
+	 */
+	public void Test1() {
+		
+		Test1Page page = PageFactory.initElements(driver, Test1Page.class);
+		
+		//Navigate to the home page
+		driver.get(baseUrl);
+		
+		//Assert that both the email address and password inputs are present as well as the login button
+		page.assertElementPresence(page.getEmail());
+		
+		page.assertElementPresence(page.getPassword());
+		
+		page.assertElementPresence(page.getSignInButton());
+		
+		//Enter in an email address and password combination into the respective fields
+		page.setEmail(email);
+		
+		page.setPassword(password);
+		
+		page.submitSignIn();
+	  
+	}
+	
+	@Test
+	/*
+	 * Test 2
+		Navigate to the home page
+		In the test 2 div, assert that there are three values in the listgroup
+		Assert that the second list item's value is set to "List Item 2"
+		Assert that the second list item's badge value is 6
+	 */
+	public void Test2() {
+		
+		Test2Page page = PageFactory.initElements(driver, Test2Page.class);
+		
+		//int count = driver.findElements(By.cssSelector(".m_list-group > li")).size();
+		//System.out.println(count);
+		//Assert.assertEquals(3, count);
+		System.out.println(page.getListItem1().getSize());
+	  
+	}
+	
+	@Test
+	/*
+	 * Test 3
+		Navigate to the home page
+		In the test 3 div, assert that "Option 1" is the default selected value
+		Select "Option 3" from the select list
+	 */
+	public void Test3() {
+	  
+	}
+	
+	@Test
+	/*
+	 * Test 4
+		Navigate to the home page
+		In the test 4 div, assert that the first button is enabled and that the second button is disabled
+	 */
+	public void Test4() {
+	  
+	}
+	
+	@Test
+	/*
+	 * Test 5
+		Navigate to the home page
+		In the test 5 div, wait for a button to be displayed (note: the delay is random) and then click it
+		Once you've clicked the button, assert that a success message is displayed
+		Assert that the button is now disabled
+	 */
+	public void Test5() {
+	  
+	}
+	
+	@Test
+	/*
+	 * Test 6
+		Navigate to the home page
+		Write a method that allows you to find the value of any cell on the grid
+		Use the method to find the value of the cell at coordinates 2, 2 (staring at 0 in the top left corner)
+		Assert that the value of the cell is "Ventosanzap"
+	 */
+	public void Test6() {
+	  
+	}
+
+
+
+}

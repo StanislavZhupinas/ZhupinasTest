@@ -1,0 +1,32 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class HomePage_PO {
+	
+	private WebDriver driver;
+	
+	public HomePage_PO(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
+	private WebElement email;
+	
+	private WebElement password;
+	
+	private WebElement signInButton;
+	
+	public void enterEmail(String email) {
+		
+	}
+	
+	public void enterPassword(String password) {
+		
+	}
+	
+	public void submitSignIn() {
+		
+	}
+}

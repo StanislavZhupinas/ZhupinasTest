@@ -1,0 +1,49 @@
+package testng.PageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class Test2Page {
+	
+	private WebDriver driver;
+	
+	public Test2Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+	public List<WebElement> getListItems() {
+		return listItems;
+	}
+	
+	public void listItemValueAssert (List<WebElement> element, int index, String expectedValue) {
+		
+		String listItem = element
+				.get(index-1)
+				.getText()
+				.substring(0, expectedValue.length());
+		
+		Assert.assertEquals(listItem, expectedValue);
+	}
+	
+	public void listItemBadgeAssert (List<WebElement> element, int index, String expectedValue) {
+		
+		String listItem = element
+				.get(index-1)
+				.getText()
+				.substring(12);
+		Assert.assertEquals(listItem, expectedValue);
+	}
+
+	@FindBy(className="list-group-item")
+	private List<WebElement> listItems;
+
+	public void assertListItemsNumber (List<WebElement> element, int expectedNumberOfItems) {
+		int count = element.size();
+		Assert.assertEquals(expectedNumberOfItems, count);
+	}
+}

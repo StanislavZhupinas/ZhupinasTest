@@ -1,0 +1,14 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+public class Test3Page {
+
+	private WebDriver driver;
+	
+	public Test3Page(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	
+}

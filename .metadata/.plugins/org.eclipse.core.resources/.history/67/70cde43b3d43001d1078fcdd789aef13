@@ -1,0 +1,15 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebElement;
+
+public class HomePage_PO {
+	private WebElement email;
+	
+	private WebElement password;
+	
+	private WebElement signInButton;
+	
+	public void enterEmail() {
+		
+	}
+}

@@ -1,0 +1,56 @@
+package testng.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class HomePage_PO {
+	
+	private WebDriver driver;
+	
+	public HomePage_PO(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	@FindBy(id="inputEmail")
+	private WebElement email;
+	
+	@FindBy(id="inputPassword")
+	private WebElement password;
+	
+	@FindBy(css="[type='submit']")
+	private WebElement signInButton;
+	
+	public void enterEmail(String email) {
+		
+	}
+	
+	public void enterPassword(String password) {
+		
+	}
+	
+	public void submitSignIn() {
+		
+	}
+	
+	public void assertElementPresence (WebElement element) {
+		Assert.assertEquals(true, element.isDisplayed());
+	}
+
+	public WebElement getEmail() {
+		return email;
+	}
+
+	public void setEmail(WebElement email) {
+		this.email = email;
+	}
+
+	public WebElement getPassword() {
+		return password;
+	}
+
+	public void setPassword(WebElement password) {
+		this.password = password;
+	}
+}
